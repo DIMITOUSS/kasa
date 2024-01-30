@@ -1,0 +1,35 @@
+.header {
+    width: 100%;
+    max-width: 1240px;
+    min-width: 200px;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__link {
+    display: flex;
+    gap: 57px;
+}
+.header__link__active {
+    text-decoration: underline;
+}
+.header__link a {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34.22px;
+    text-align: right;
+    color: red;
+}
+@media (max-width: 768px) {
+    .header__logo {
+        width: 30%;
+   }
+    .header__link {
+        gap: 10px;
+   }
+    .header__link a {
+        font-size: 12px;
+   }
+}
