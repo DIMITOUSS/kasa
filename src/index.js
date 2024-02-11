@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './components/Header/index'
 import Banner from "./components/Banner/index"
 import Cards from './components/Cards/Cards';
+import Footer from  './components/Footer/index';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ root.render(
 			<Header />
       <Banner/>
       <Cards/>
+      <Footer/>
 		</Router>
           
 
