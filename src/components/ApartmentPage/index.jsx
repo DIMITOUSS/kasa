@@ -1,41 +1,71 @@
 import React, { useState, useEffect } from 'react';
 import datas from '../../datas/db.json';
-import Slider from 'react-slick'; // Import the Slider component from react-slick
+import Gallery from '../Gallery'; 
+
+import Collapse from '../Collapse';
+import Rating from '../Rating';
+import Tag from '../Tag'
 import './style.scss';
+
 const Appartementpage = () => {
     const [apartments, setApartments] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setApartments(datas);
+        // Simulating an asynchronous data fetch
+        setTimeout(() => {
+            setApartments(datas);
+            setIsLoading(false);
+        }, 1000); // Adjust the timeout as needed
     }, []);
-
-    // Slick carousel settings
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
-
+    if  (isLoading) return <p>Chargement...</p>;
+    
+    
     return (
+        
         <div>
-            <h2>Apartment Listings</h2>
-            <ul>
-                {apartments.map((apartment) => (
-                    <li key={apartment.id}>
-                        <h3>{apartment.title}</h3>
-                        <p>{apartment.description}</p>
-                        <Slider className='gallery' {...settings}>
-                            {apartment.pictures.map((picture, index) => (
-                                <div key={index}>
-                                    <img className='image' src={picture} alt={`Apartment ${index + 1}`} />
-                                </div>
-                            ))}
-                        </Slider>
-                    </li>
-                ))}
-            </ul>
+        
+                <ul>
+                    {apartments.map((apartment) => (
+                        <li key={apartment.id}>
+                            <section>
+				<Gallery images={apartment.pictures} />
+				<div className="annonce-info-rating-host-wrapper">
+					<div className="annonce-info-wrapper">
+						<h1 className="annonce-title">{apartment.title}</h1>
+						<p className="annonce-location">
+							{apartment.location}
+						</p>
+						<div className="tag-wrapper">
+							{apartment.tags.map((tag, index) => (
+								<Tag tagName={tag} key={`${tag}-${index}`} />
+							))}
+						</div>
+					</div>
+				 
+				</div>
+				<div className="description-equipments-wrapper">
+					<Collapse
+						title="Description"
+						content={apartment.description}
+					/>
+					<Collapse
+						title="Équipements"
+						content={apartment.equipments}
+					/>
+                    <Rating  rating={apartment.rating} />
+				</div>
+               <>
+               <p>{apartment.host.name}</p>
+               <img src={apartment.host.picture} alt="" height='50' width='50'/>
+               
+               </>
+			</section>
+                                      
+                        </li>
+                    ))}
+                </ul>
+            
         </div>
     );
 };

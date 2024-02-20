@@ -1,0 +1,66 @@
+@import '../../variables.scss';
+
+/* ---------------------------------------- */
+/* ==              GALLERY               */
+/*---------------------------------------- */
+.gallery,
+.image {
+	height: 15.9375rem;
+	@include desktop-breakpoint {
+		height: 25.9375rem;
+	}
+}
+
+.gallery {
+	position: relative;
+}
+
+.image {
+	width: 100%;
+	object-fit: cover;
+	border-radius: 0.625rem;
+}
+
+.right-arrow,
+.left-arrow {
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	width: 0.75rem;
+	height: 1.375rem;
+	cursor: pointer;
+	user-select: none;
+	@include recolor(#fff, 1);
+	@include desktop-breakpoint {
+		top: 9.75rem;
+		width: 2.875rem;
+		height: 5rem;
+	}
+}
+
+.right-arrow {
+	right: 0.3125rem;
+	transform: rotate(180deg);
+	@include desktop-breakpoint {
+		right: 1.5rem;
+	}
+}
+
+.left-arrow {
+	left: 0.3125rem;
+	@include desktop-breakpoint {
+		left: 1.5rem;
+	}
+}
+
+.slide {
+	transform: scale(0.92);
+	opacity: 0;
+	transition-duration: 1s;
+	&.active {
+		width: 100%;
+		transform: scale(1);
+		opacity: 1;
+		transition-duration: 1s;
+	}
+}
