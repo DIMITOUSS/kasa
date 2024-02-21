@@ -1,75 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import datas from '../../datas/db.json';
-import Gallery from '../Gallery'; 
-
+import Gallery from '../Gallery';
 import Collapse from '../Collapse';
 import Rating from '../Rating';
-import Tag from '../Tag'
-import './style.scss';
+import Tag from '../Tag';
+import { useParams } from 'react-router-dom';
 
-const Appartementpage = () => {
-    const [apartments, setApartments] = useState([]);
+const ApartmentPage = () => {
+    const [apartment, setApartment] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const { id } = useParams();
 
     useEffect(() => {
-        // Simulating an asynchronous data fetch
         setTimeout(() => {
-            setApartments(datas);
+            const selectedApartment = datas.find(apartment => apartment.id === id);
+            console.log("Selected Apartment:", selectedApartment);
+            setApartment(selectedApartment);
             setIsLoading(false);
-        }, 1000); // Adjust the timeout as needed
-    }, []);
-    if  (isLoading) return <p>Chargement...</p>;
+        }, 1000);
+    }, [id]);
 
-    
-    
-    
+    if (isLoading) return <p>Loading...</p>;
+    if (!apartment) return <p>Apartment not found for ID: {id}</p>;
+
     return (
-        
         <div>
-        
-                <ul>
-                    {apartments.map((apartment) => (
-                        <li key={apartment.id}>
-                            <section>
-				<Gallery images={apartment.pictures} />
-				<div className="annonce-info-rating-host-wrapper">
-					<div className="annonce-info-wrapper">
-						<h1 className="annonce-title">{apartment.title}</h1>
-						<p className="annonce-location">
-							{apartment.location}
-						</p>
-						<div className="tag-wrapper">
-							{apartment.tags.map((tag, index) => (
-								<Tag tagName={tag} key={`${tag}-${index}`} />
-							))}
-						</div>
-					</div>
-				 
-				</div>
-				<div className="description-equipments-wrapper">
-					<Collapse
-						title="Description"
-						content={apartment.description}
-					/>
-					<Collapse
-						title="Équipements"
-						content={apartment.equipments}
-					/>
-                    <Rating  rating={apartment.rating} />
-				</div>
-               <>
-               <p>{apartment.host.name}</p>
-               <img src={apartment.host.picture} alt="" height='50' width='50'/>
-               
-               </>
-			</section>
-                                      
-                        </li>
-                    ))}
-                </ul>
-            
+            <section className='annonce'>
+                <Gallery images={apartment.pictures} />
+                <div className="annonce-info-rating-host-wrapper">
+                    <div className="annonce-info-wrapper">
+                        <h1 className="annonce-title">{apartment.title}</h1>
+                        <p className="annonce-location">{apartment.location}</p>
+                        <div className="tag-wrapper">
+                            {apartment.tags.map((tag, index) => (
+                                <Tag  tagName={tag} key={`${tag}-${index}`} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className="description-equipments-wrapper">
+                    <Collapse title="Description" content={apartment.description} />
+                    <Collapse title="Équipements" content={apartment.equipments} />
+                    <Rating rating={apartment.rating} />
+                </div>
+                <>
+                    <p >{apartment.host.name}</p>
+                    <img src={apartment.host.picture} alt="" height="50" width="50" />
+                </>
+            </section>
         </div>
     );
 };
 
-export default Appartementpage;
+export default ApartmentPage;

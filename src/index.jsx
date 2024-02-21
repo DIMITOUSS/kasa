@@ -7,7 +7,7 @@ import Error from './pages/Error';
 
 import Header from './components/Header/index';
 import Footer from './components/Footer/index';
-import HomePage from './components/Cards/Cards.jsx'; 
+import HomePage from './pages/Home'; 
 import ApartmentPage from './components/ApartmentPage/index.jsx'; 
 import Banner from './components/Banner/'
 
@@ -39,8 +39,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <Header />
       <Routes>
+        
         {routes.map((route, index) => (
           <Route
             key={index}

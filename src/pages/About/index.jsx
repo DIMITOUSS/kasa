@@ -1,11 +1,12 @@
 import aproposBanner from '../../assets/apropos-banner.jpg'
 
 import Collapse from '../../components/Collapse'
+import Header from '../../components/Header'
 
 import './style.scss'
 
 function APropos() {
-	/* Setting the title of the page. */
+
 	document.title = 'A Propos - Kasa'
 
 	const aproposData = [
@@ -32,6 +33,9 @@ function APropos() {
 	]
 
 	return (
+		<>
+		<Header />
+		
 		<section className="apropos-section">
 			<h1 className="banner">
 				<img
@@ -49,6 +53,7 @@ function APropos() {
 				/>
 			))}
 		</section>
+		</>
 	)
 }
 
