@@ -5,6 +5,8 @@ import Collapse from '../Collapse';
 import Rating from '../Rating';
 import Tag from '../Tag';
 import { useParams } from 'react-router-dom';
+import Header from '../Header';
+import './style.scss'
 
 const ApartmentPage = () => {
     const [apartment, setApartment] = useState(null);
@@ -25,6 +27,7 @@ const ApartmentPage = () => {
 
     return (
         <div>
+            <Header/>
             <section className='annonce'>
                 <Gallery images={apartment.pictures} />
                 <div className="annonce-info-rating-host-wrapper">
@@ -33,20 +36,25 @@ const ApartmentPage = () => {
                         <p className="annonce-location">{apartment.location}</p>
                         <div className="tag-wrapper">
                             {apartment.tags.map((tag, index) => (
-                                <Tag  tagName={tag} key={`${tag}-${index}`} />
+                                <Tag   tagName={tag} key={`${tag}-${index}`} />
                             ))}
                         </div>
                     </div>
+                    <div className='host'>
+
+
+                < div className='host-wrapper'>
+                    <p className='host-name' >{apartment.host.name}</p>
+                    <img className="host-picture" src={apartment.host.picture} alt=""  />
+                </div>
+                </div>
                 </div>
                 <div className="description-equipments-wrapper">
                     <Collapse title="Description" content={apartment.description} />
                     <Collapse title="Équipements" content={apartment.equipments} />
                     <Rating rating={apartment.rating} />
                 </div>
-                <>
-                    <p >{apartment.host.name}</p>
-                    <img src={apartment.host.picture} alt="" height="50" width="50" />
-                </>
+                
             </section>
         </div>
     );

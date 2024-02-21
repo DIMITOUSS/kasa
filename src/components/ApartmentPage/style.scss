@@ -4,13 +4,15 @@
 /* ==              LOGEMENT               */
 /*---------------------------------------- */
 .annonce {
+	margin:2rem;
 	&-title {
-		margin-top: 0.9375rem;
+		margin-top: 2rem;
 		margin-bottom: 0;
 		color: $primary-color;
 		font-size: 1.125rem;
 		font-weight: 500;
 		line-height: 142.6%;
+
 		@include desktop-breakpoint {
 			font-size: 2.25rem;
 		}
@@ -116,7 +118,6 @@
 			}
 		}
 		&-title {
-		color: $primary-color;
 
 			@include desktop-breakpoint {
 
