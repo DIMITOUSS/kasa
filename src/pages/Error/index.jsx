@@ -4,7 +4,7 @@ import './style.scss'
 
 function Error({
 	/* Default values of the props. */
-	title = 'Erreur',
+	title = '404',
 	subtitle = 'Oops, une erreur est survenue.',
 	subtitle2 = '',
 }) {

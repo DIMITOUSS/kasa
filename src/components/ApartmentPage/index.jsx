@@ -19,6 +19,8 @@ const Appartementpage = () => {
         }, 1000); // Adjust the timeout as needed
     }, []);
     if  (isLoading) return <p>Chargement...</p>;
+
+    
     
     
     return (

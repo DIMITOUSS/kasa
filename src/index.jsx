@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Routes
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import About from './pages/About/';
 import Error from './pages/Error';
 
@@ -9,6 +9,7 @@ import Header from './components/Header/index';
 import Footer from './components/Footer/index';
 import HomePage from './components/Cards/Cards.jsx'; 
 import ApartmentPage from './components/ApartmentPage/index.jsx'; 
+import Banner from './components/Banner/'
 
 const routes = [
 
@@ -17,6 +18,7 @@ const routes = [
     path: '/',
     element: <HomePage /> 
   },
+  
    
   {
     path: '*',
@@ -38,7 +40,6 @@ root.render(
   <React.StrictMode>
     <Router>
       <Header />
-   
       <Routes>
         {routes.map((route, index) => (
           <Route

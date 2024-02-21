@@ -6,7 +6,7 @@
     border-radius: 25px;
     margin: auto;
     background-color: #e5e5e5;
-   /* F6F6F6 */
+    margin-top: 3rem;
 }
 .logement__list {
     margin: 0;
@@ -16,11 +16,14 @@
     justify-content: center;
     row-gap: 56px;
     column-gap: 50px;
+    
 }
 .logement__list__content {
     width: 340px;
     height: 340px;
     position: relative;
+    padding-top: 2rem;
+
 }
 .logement__list__content__bg {
     position: absolute;
