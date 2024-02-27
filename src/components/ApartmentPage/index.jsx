@@ -7,7 +7,7 @@ import Tag from '../Tag';
 import { useParams } from 'react-router-dom';
 import Header from '../Header';
 import './style.scss'
-
+import Error from '../../pages/Error';
 const ApartmentPage = () => {
     const [apartment, setApartment] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +23,7 @@ const ApartmentPage = () => {
     }, [id]);
 
     if (isLoading) return <p>Loading...</p>;
-    if (!apartment) return <p>Apartment not found for ID: {id}</p>;
+    if (!apartment) return <Error/>;
 
     return (
         <div>

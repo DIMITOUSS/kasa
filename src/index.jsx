@@ -5,11 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './pages/About/';
 import Error from './pages/Error';
 
-import Header from './components/Header/index';
 import Footer from './components/Footer/index';
 import HomePage from './pages/Home'; 
 import ApartmentPage from './components/ApartmentPage/index.jsx'; 
-import Banner from './components/Banner/'
 
 const routes = [
 

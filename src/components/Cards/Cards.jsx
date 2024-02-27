@@ -7,7 +7,7 @@ function LocationList() {
 	return (
 		<main className='logement'>
 			<div className='logement__list'>
-				{logementList.map(({ id, cover, title, pictures}) =>
+				{logementList.map(({ id, cover, title, }) =>
 					<article key={id} className='logement__list__content'>
 					<Link to={`/apartment/${id}`}>
 							<div className="logement__list__content__bg"></div>
