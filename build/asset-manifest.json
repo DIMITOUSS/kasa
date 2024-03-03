@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.49fe3a48.css",
+    "main.css": "/static/css/main.0e79d2ae.css",
     "main.js": "/static/js/main.3ec95b01.js",
     "static/media/banner-home.png": "/static/media/banner-home.efc1935eb81fc5e585f9.png",
     "static/media/apropos-banner.jpg": "/static/media/apropos-banner.10720cd2488c628ee695.jpg",
@@ -10,11 +10,11 @@
     "static/media/chevron.svg": "/static/media/chevron.6be86a8ff7772b42b056a30c2d82b448.svg",
     "static/media/arrowLeft.svg": "/static/media/arrowLeft.e3d6ec79ff5911d6c8462e279c56913e.svg",
     "static/media/star.svg": "/static/media/star.325cf1d54d109e062e0d0468f6412f00.svg",
-    "main.49fe3a48.css.map": "/static/css/main.49fe3a48.css.map",
+    "main.0e79d2ae.css.map": "/static/css/main.0e79d2ae.css.map",
     "main.3ec95b01.js.map": "/static/js/main.3ec95b01.js.map"
   },
   "entrypoints": [
-    "static/css/main.49fe3a48.css",
+    "static/css/main.0e79d2ae.css",
     "static/js/main.3ec95b01.js"
   ]
 }
