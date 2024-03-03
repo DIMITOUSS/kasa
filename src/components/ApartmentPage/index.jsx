@@ -6,6 +6,7 @@ import Rating from '../Rating';
 import Tag from '../Tag';
 import { useParams } from 'react-router-dom';
 import Header from '../Header';
+import Loader from '../Loader/Loader';
 import './style.scss'
 import Error from '../../pages/Error';
 const ApartmentPage = () => {
@@ -19,10 +20,10 @@ const ApartmentPage = () => {
             console.log("Selected Apartment:", selectedApartment);
             setApartment(selectedApartment);
             setIsLoading(false);
-        }, 1000);
+        }, 2000);
     }, [id]);
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Loader/>;
     if (!apartment) return <Error/>;
 
     return (
