@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { logementList } from '../../datas/logement'
-import './Cards.css';
+import './Cards.scss';
 
 function LocationList() {
 
