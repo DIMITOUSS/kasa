@@ -21,8 +21,16 @@
             font-weight: 500;
             line-height: 34.22px;
             text-align: right;
-            color: red;
+            color: #000000;
+            text-decoration: none;
+            &.header__link__active { 
+                text-decoration: underline;}
+                &.header__link__inactive{
+                    text-decoration: none;
+                }
+
         }
+       
     }
 
     @media (max-width: 768px) {
